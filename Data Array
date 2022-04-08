@@ -1,0 +1,14 @@
+import numpy as np
+import pandas as pd
+
+df = pd.read_csv('/Users/urbanbase/Downloads/sample.csv')
+df2 = df.sort_values(by=['apartment location', 'unit area'])
+df3.to_csv('df_sorted_data.csv', encoding='UTF-8', index=False)
+
+dup_df2 = df2[df2.duplicated(subset = ['Apartment name','apartment location', 'unit area', 'unit floor plan'])]
+dup_df2.to_csv('dup_data.csv', encoding='UTF-8', index=False)
+print(dup_df2)
+
+rm_dup_df2 = df2.drop_duplicates(subset = ['Apartment name','apartment location', 'unit area', 'unit floor plan'], keep='first') 
+rm_dup_df2.to_csv('rm_dup_data.csv', encoding='UTF-8', index=False)  
+print(rm_dup_df2)
